@@ -1,0 +1,27 @@
+public class BasicGym extends AbstractGym {
+    public BasicGym() {
+        super("Basic Gym", 50);
+    }
+
+    @Override
+    public boolean addMember(String memberName) {
+        if (currentMembers < maxMembers) {
+            currentMembers++;
+            System.out.println("Member " + memberName + " added to " + name + ". Current members: " + currentMembers);
+            return true;
+        }
+        System.out.println("Cannot add " + memberName + ". Gym is at full capacity (" + maxMembers + ")");
+        return false;
+    }
+
+    @Override
+    public boolean removeMember(String memberName) {
+        if (currentMembers > 0) {
+            currentMembers--;
+            System.out.println("Member " + memberName + " removed from " + name + ". Current members: " + currentMembers);
+            return true;
+        }
+        System.out.println("Cannot remove " + memberName + ". No members in the gym.");
+        return false;
+    }
+}
